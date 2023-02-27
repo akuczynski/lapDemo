@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Account;
+﻿using Lab.Measurement;
+using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -17,8 +18,9 @@ namespace Lab;
     typeof(AbpPermissionManagementApplicationModule),
     typeof(AbpTenantManagementApplicationModule),
     typeof(AbpFeatureManagementApplicationModule),
-    typeof(AbpSettingManagementApplicationModule)
-    )]
+    typeof(AbpSettingManagementApplicationModule),
+    typeof(MeasurementApplicationModule)
+	)]
 public class LabApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

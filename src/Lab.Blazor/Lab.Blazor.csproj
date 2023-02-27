@@ -25,6 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
+	<!-- add references to modules -->
+	<ProjectReference Include="..\..\modules\Measurement\src\Lab.Measurement.Blazor\Lab.Measurement.Blazor.csproj" />
+  </ItemGroup>	
+	
+  <ItemGroup>
     <ProjectReference Include="..\Lab.Application\Lab.Application.csproj" />
     <ProjectReference Include="..\Lab.HttpApi\Lab.HttpApi.csproj" />
     <ProjectReference Include="..\Lab.EntityFrameworkCore\Lab.EntityFrameworkCore.csproj" />

@@ -40,6 +40,7 @@ using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+using Lab.Measurement.Blazor;
 
 namespace Lab.Blazor;
 
@@ -55,7 +56,8 @@ namespace Lab.Blazor;
     typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule),
     typeof(AbpIdentityBlazorServerModule),
     typeof(AbpTenantManagementBlazorServerModule),
-    typeof(AbpSettingManagementBlazorServerModule)
+    typeof(AbpSettingManagementBlazorServerModule),
+    typeof(MeasurementBlazorModule)
    )]
 public class LabBlazorModule : AbpModule
 {
