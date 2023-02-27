@@ -263,3 +263,6 @@ src/Lab.Blazor.Tiered/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*
+*.db
+Lab.db-wal
+Lab.db-shm
