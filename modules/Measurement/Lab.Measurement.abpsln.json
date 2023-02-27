@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Lab.Measurement": {
+      "path": "Lab.Measurement.abpmdl.json"
+    }
+  }
+}

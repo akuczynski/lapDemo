@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "Lab.Measurement.Domain.Shared": {
+      "path": "src/Lab.Measurement.Domain.Shared/Lab.Measurement.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Domain": {
+      "path": "src/Lab.Measurement.Domain/Lab.Measurement.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Application.Contracts": {
+      "path": "src/Lab.Measurement.Application.Contracts/Lab.Measurement.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Application": {
+      "path": "src/Lab.Measurement.Application/Lab.Measurement.Application.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.EntityFrameworkCore": {
+      "path": "src/Lab.Measurement.EntityFrameworkCore/Lab.Measurement.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.MongoDB": {
+      "path": "src/Lab.Measurement.MongoDB/Lab.Measurement.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.HttpApi": {
+      "path": "src/Lab.Measurement.HttpApi/Lab.Measurement.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.HttpApi.Client": {
+      "path": "src/Lab.Measurement.HttpApi.Client/Lab.Measurement.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.TestBase": {
+      "path": "test/Lab.Measurement.TestBase/Lab.Measurement.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.EntityFrameworkCore.Tests": {
+      "path": "test/Lab.Measurement.EntityFrameworkCore.Tests/Lab.Measurement.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.MongoDB.Tests": {
+      "path": "test/Lab.Measurement.MongoDB.Tests/Lab.Measurement.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.Domain.Tests": {
+      "path": "test/Lab.Measurement.Domain.Tests/Lab.Measurement.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.Application.Tests": {
+      "path": "test/Lab.Measurement.Application.Tests/Lab.Measurement.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.HttpApi.Host": {
+      "path": "host/Lab.Measurement.HttpApi.Host/Lab.Measurement.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.Web": {
+      "path": "src/Lab.Measurement.Web/Lab.Measurement.Web.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Lab.Measurement.HttpApi.Client.ConsoleTestApp/Lab.Measurement.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "Lab.Measurement.Web.Host": {
+      "path": "host/Lab.Measurement.Web.Host/Lab.Measurement.Web.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.AuthServer": {
+      "path": "host/Lab.Measurement.AuthServer/Lab.Measurement.AuthServer.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.Host.Shared": {
+      "path": "host/Lab.Measurement.Host.Shared/Lab.Measurement.Host.Shared.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.Web.Unified": {
+      "path": "host/Lab.Measurement.Web.Unified/Lab.Measurement.Web.Unified.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.Blazor": {
+      "path": "src/Lab.Measurement.Blazor/Lab.Measurement.Blazor.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Blazor.Host": {
+      "path": "host/Lab.Measurement.Blazor.Host/Lab.Measurement.Blazor.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Lab.Measurement.Blazor.Server": {
+      "path": "src/Lab.Measurement.Blazor.Server/Lab.Measurement.Blazor.Server.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Blazor.WebAssembly": {
+      "path": "src/Lab.Measurement.Blazor.WebAssembly/Lab.Measurement.Blazor.WebAssembly.abppkg.json",
+      "folder": "src"
+    },
+    "Lab.Measurement.Blazor.Server.Host": {
+      "path": "host/Lab.Measurement.Blazor.Server.Host/Lab.Measurement.Blazor.Server.Host.abppkg.json",
+      "folder": "host"
+    }
+  }
+}
