@@ -13,17 +13,17 @@ public class SampleAppService_Tests : MeasurementApplicationTestBase
         _sampleAppService = GetRequiredService<ISampleAppService>();
     }
 
-    //[Fact]
-    //public async Task GetAsync()
-    //{
-    //    var result = await _sampleAppService.GetAsync();
-    //    result.Value.ShouldBe(42);
-    //}
+    [Fact]
+    public async Task GetAsync()
+    {
+        var result = await _sampleAppService.GetAsync();
+        result.ShouldNotBeNull();
+    }
 
-    //[Fact]
-    //public async Task GetAuthorizedAsync()
-    //{
-    //    var result = await _sampleAppService.GetAuthorizedAsync();
-    //    result.Value.ShouldBe(42);
-    //}
+    [Fact]
+    public async Task GetAuthorizedAsync()
+    {
+        var result = await _sampleAppService.GetAuthorizedAsync();
+        result.ShouldNotBeNull();
+    }
 }

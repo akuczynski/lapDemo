@@ -63,7 +63,7 @@ public class LabDbContext :
     {
         base.OnModelCreating(builder);
 
-        builder.ConfigurePermissionManagement();
+        builder.ConfigurePermissionManagement(); 
         builder.ConfigureSettingManagement();
         builder.ConfigureBackgroundJobs();
         builder.ConfigureAuditLogging();

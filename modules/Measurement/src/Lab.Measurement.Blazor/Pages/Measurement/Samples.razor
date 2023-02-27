@@ -7,7 +7,7 @@
 @inject ISampleAppService sampleAppService
 @inject IStringLocalizer<MeasurementResource> L
 
-@attribute [Authorize(Policy = MeasurementPermissions.SampleGet)]
+@attribute [Authorize(Policy = MeasurementPermissions.Samples.Default)]
 
 <h3>Samples - Log</h3>
 

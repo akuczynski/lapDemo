@@ -21,13 +21,13 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 
 	public async Task<SampleDto> GetAsync()
 	{
-		var item = await _sampleRepository.GetAsync(x => x.Id != Guid.Empty);
+        var item = await _sampleRepository.GetAsync(x => x.Id != Guid.Empty);
 		var result = ObjectMapper.Map<Sample, SampleDto>(item);
 
 		return result;
 	}
 
-	[Authorize(MeasurementPermissions.SampleGet)]
+	[Authorize(MeasurementPermissions.Samples.Default)]
 	public async Task<SampleDto> GetAuthorizedAsync()
 	{
 		var item = await _sampleRepository.GetAsync(x => x.Id != Guid.Empty);

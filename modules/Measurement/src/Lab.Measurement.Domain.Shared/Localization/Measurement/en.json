@@ -3,7 +3,9 @@
   "texts": {
     "MyAccount": "My account",
     "SamplePageMessage": "A sample page for the Measurement module",
-    "Permission:Measurement": "Measurment module",
-    "Permission:Measurement:SampleGet": "Access Samples view"
+    "Permission:Measurement": "Measurment Managment",
+    "Permission:Samples": "Samples",
+    "Menu:Samples": "Samples",
+    "Menu:Example": "Example"
   }
 }

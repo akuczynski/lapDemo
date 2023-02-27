@@ -6,7 +6,14 @@ public class MeasurementPermissions
 {
     public const string GroupName = "Measurement";
 
-    public const string SampleGet = GroupName + "Get_Samples";
+    public static class Samples
+    {
+        public const string Default = GroupName + ".Samples";
+
+        //public const string Delete = Default + ".Delete";
+        //public const string Update = Default + ".Update";
+        //public const string Create = Default + ".Create";
+    }
 
     public static string[] GetAll()
     {

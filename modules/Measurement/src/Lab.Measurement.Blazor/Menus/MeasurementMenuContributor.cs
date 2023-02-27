@@ -1,4 +1,5 @@
-﻿using Lab.Measurement.Permissions;
+﻿using Lab.Measurement.Localization;
+using Lab.Measurement.Permissions;
 using System.Threading.Tasks;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.UI.Navigation;
@@ -15,22 +16,27 @@ public class MeasurementMenuContributor : IMenuContributor
         }
     }
 
-    private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+    private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
+        var l = context.GetLocalizer<MeasurementResource>();
+
         //Add main menu items.
-        var mainMenuItem = new ApplicationMenuItem(MeasurementMenus.Prefix, displayName: "Measurement", "/Measurement", icon: "fa fa-globe");
-		context.Menu.AddItem(mainMenuItem);
+        var rootMenuItem = new ApplicationMenuItem(MeasurementMenus.Prefix, displayName: "Measurement", "/Measurement", icon: "fa fa-globe");
+        context.Menu.AddItem(rootMenuItem);
 
-        mainMenuItem.AddItem(new ApplicationMenuItem(MeasurementMenus.Samples,
-                displayName: "Samples",
-                url: "/Measurement/Samples"
-            )).RequirePermissions(MeasurementPermissions.SampleGet);   
+        if (await context.IsGrantedAsync(MeasurementPermissions.Samples.Default))
+        { 
+            rootMenuItem.AddItem(new ApplicationMenuItem(
+              name: MeasurementMenus.Samples,
+              displayName: l["Menu:Samples"],
+              url: "/Measurement/Samples"
+          ));
+        }
 
-        mainMenuItem.AddItem(new ApplicationMenuItem(MeasurementMenus.Example,
-        displayName: "Example",
-        url: "/Measurement/Example"
-    ));
-
-        return Task.CompletedTask;
+        rootMenuItem.AddItem(new ApplicationMenuItem(
+            name: MeasurementMenus.Example,
+            displayName: l["Menu:Example"],
+            url: "/Measurement/Example"
+        ));
     }
 }
