@@ -1,6 +1,10 @@
-﻿namespace Lab.Measurement.Samples;
+﻿using System;
+
+namespace Lab.Measurement.Samples;
 
 public class SampleDto
 {
-    public int Value { get; set; }
+	public string LaborantName { get; set; }
+
+	public DateTime DataOfMeasurement { get; set; }
 }

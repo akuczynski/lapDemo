@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lab.Measurement.Entities;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Lab.Measurement.EntityFrameworkCore;
 
@@ -10,7 +12,16 @@ public static class MeasurementDbContextModelCreatingExtensions
     {
         Check.NotNull(builder, nameof(builder));
 
-        /* Configure all entities here. Example:
+		builder.Entity<Sample>(b =>
+		{
+			//Configure table & schema name
+			b.ToTable("Samples", MeasurementDbProperties.DbSchema);
+
+			b.ConfigureByConvention();
+		});
+
+
+		/* Configure all entities here. Example:
 
         builder.Entity<Question>(b =>
         {
@@ -29,5 +40,5 @@ public static class MeasurementDbContextModelCreatingExtensions
             b.HasIndex(q => q.CreationTime);
         });
         */
-    }
+	}
 }

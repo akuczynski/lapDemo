@@ -1,7 +1,9 @@
 {
   "culture": "en",
   "texts": {
-    "MyAccount":  "My account",
-    "SamplePageMessage": "A sample page for the Measurement module"
+    "MyAccount": "My account",
+    "SamplePageMessage": "A sample page for the Measurement module",
+    "Permission:Measurement": "Measurment module",
+    "Permission:Measurement:SampleGet": "Access Samples view"
   }
 }

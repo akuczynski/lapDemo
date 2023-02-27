@@ -1,0 +1,24 @@
+﻿@page "/Measurement/Samples"
+@using Lab.Measurement.Localization;
+@using Lab.Measurement.Permissions;
+@using Lab.Measurement.Samples;
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.Extensions.Localization
+@inject ISampleAppService sampleAppService
+@inject IStringLocalizer<MeasurementResource> L
+
+@attribute [Authorize(Policy = MeasurementPermissions.SampleGet)]
+
+<h3>Samples - Log</h3>
+
+<p>@message</p>
+
+@code {
+    private string? message;
+
+    protected override async void OnInitialized()
+    {
+       var sample = await sampleAppService.GetAuthorizedAsync();
+       message = $"{sample.LaborantName} did last measurement at {sample.DataOfMeasurement}";     
+    }
+}

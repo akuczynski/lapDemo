@@ -20,6 +20,23 @@ namespace Lab.Migrations
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.Sqlite)
                 .HasAnnotation("ProductVersion", "7.0.1");
 
+            modelBuilder.Entity("Lab.Measurement.Entities.Sample", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataOfMeasurement")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LaborantName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Samples", (string)null);
+                });
+
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
                 {
                     b.Property<Guid>("Id")

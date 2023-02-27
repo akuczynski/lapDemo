@@ -14,9 +14,10 @@ public class MeasurementEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<MeasurementDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
-        });
+			/* Add custom repositories here. Example:
+			 * options.AddRepository<Question, EfCoreQuestionRepository>();
+			 */
+			options.AddDefaultRepositories(includeAllEntities: true);
+		});
     }
 }

@@ -12,7 +12,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Lab.Migrations
 {
     [DbContext(typeof(LabDbContext))]
-    [Migration("20230227121922_Add-Measurement")]
+    [Migration("20230227140135_Add-Measurement")]
     partial class AddMeasurement
     {
         /// <inheritdoc />
@@ -22,6 +22,23 @@ namespace Lab.Migrations
             modelBuilder
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.Sqlite)
                 .HasAnnotation("ProductVersion", "7.0.1");
+
+            modelBuilder.Entity("Lab.Measurement.Entities.Sample", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataOfMeasurement")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LaborantName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Samples", (string)null);
+                });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
                 {
