@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Domain.Repositories;
 using System.Linq;
 using Lab.Measurement.Permissions;
+using Volo.Abp.ObjectMapping;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Lab.Measurement.Samples;
 
@@ -19,14 +21,18 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 		_sampleRepository = sampleRepository; 
 	}
 
-    public Task<Guid> CreateAsync(SampleDto sampleDto)
+    public async Task<SampleDto> CreateAsync(SampleDto sampleDto)
     {
-        throw new NotImplementedException();
+        var item = ObjectMapper.Map<SampleDto, Sample>(sampleDto);
+      
+        var savedItem = await _sampleRepository.InsertAsync(item);
+        var result = ObjectMapper.Map<Sample, SampleDto>(savedItem);
+        return result;
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        await _sampleRepository.DeleteAsync(id);
     }
 
     public async Task<SampleDto> GetAsync()
@@ -46,8 +52,14 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 		return result;
 	}
 
-    public Task<List<SampleDto>> GetListAsync()
+    [Authorize(MeasurementPermissions.Samples.Default)]
+    public async Task<List<SampleDto>> GetListAsync()
     {
-        throw new NotImplementedException();
+        var items = await _sampleRepository.GetListAsync();
+        var orderedItems = items.OrderBy(x => x.Measurement).ThenBy(x => x.Number).ToList();
+
+        var result = ObjectMapper.Map<List<Sample>, List<SampleDto>>(orderedItems);
+
+        return result;
     }
 }

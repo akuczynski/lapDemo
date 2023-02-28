@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.AutoMapper;
 
 namespace Lab.Measurement.Profiles
 {
@@ -14,6 +15,7 @@ namespace Lab.Measurement.Profiles
 		public AutomapperProfile() 
 		{
 			CreateMap<Sample, SampleDto>();
-		}
+            CreateMap<SampleDto, Sample>().Ignore(x => x.Id);
+        }
 	}
 }

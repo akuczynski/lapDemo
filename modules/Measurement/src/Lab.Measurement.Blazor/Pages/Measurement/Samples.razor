@@ -4,21 +4,84 @@
 @using Lab.Measurement.Samples;
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.Extensions.Localization
-@inject ISampleAppService sampleAppService
+@using Volo.Abp.AspNetCore.Components.Notifications;
+@inject ISampleAppService SampleAppService
+@inject IUiNotificationService NotifiationService
 @inject IStringLocalizer<MeasurementResource> L
-
 @attribute [Authorize(Policy = MeasurementPermissions.Samples.Default)]
 
-<h3>Samples - Log</h3>
+@*<h3>Samples - Log</h3>
 
-<p>@message</p>
+@foreach(var sample in samples)
+{
+    <p>@sample</p>
+}
+*@
+
+<div class="container">
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                Samples LIST
+            </CardTitle>
+        </CardHeader>
+        <CardBody>
+            <!-- FORM FOR NEW SAMPLE ITEMS -->
+            <form id="NewItemForm" @onsubmit:preventDefault @onsubmit="() => Create()" class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-12">
+                  <div class="input-group">
+                        <input name="NewTodoText" type="text" @bind-value="@NewValue" class="form-control" placeholder="enter text..." />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <!-- SAMPLE LIST -->
+            <ul id="SampleList">
+                @foreach (var sample in samples)
+                {
+                    <li data-id="@sample.Id">
+                        <i class="far fa-trash-alt"
+                       @onclick="() => Delete(sample)"></i> @sample
+                    </li>
+                }
+            </ul>
+        </CardBody>
+    </Card>
+</div>
 
 @code {
-    private string? message;
+    private List<SampleDto> samples = new List<SampleDto>(); 
+
+    private string NewValue { get; set; }
 
     protected override async void OnInitialized()
     {
-       var sample = await sampleAppService.GetAuthorizedAsync();
-       message = $"{sample.Measurement}: Nr {sample.Number} has value : {sample.Value} ";     
+        // get list 
+        samples = await SampleAppService.GetListAsync();
+    }
+
+    private async Task Delete(SampleDto item)
+    {
+        await SampleAppService.DeleteAsync(item.Id);
+        await NotifiationService.Info("Deleted sample item.");
+        samples.Remove(item); 
+    }
+
+    private async Task Create()
+    {
+        int newValue = 0;
+        int.TryParse(NewValue, out newValue);
+
+        var sampleDto = new SampleDto
+            {
+                Measurement = "Measurment 1",
+                Value = newValue
+            };
+
+        var result = await SampleAppService.CreateAsync(sampleDto);
+        samples.Add(result);
+        NewValue = null;
     }
 }

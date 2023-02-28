@@ -13,7 +13,7 @@ public interface ISampleAppService : IApplicationService
     
     Task<List<SampleDto>> GetListAsync();
 
-    Task<Guid> CreateAsync(SampleDto sampleDto);
+    Task<SampleDto> CreateAsync(SampleDto sampleDto);
 
     Task DeleteAsync(Guid id); 
 

@@ -11,4 +11,9 @@ public class SampleDto
     public int Value { get; set; }
 
     public string Measurement { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Measurement}: Nr {Number} has value : {Value}";
+    }
 }

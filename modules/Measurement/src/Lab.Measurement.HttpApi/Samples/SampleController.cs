@@ -19,14 +19,14 @@ public class SampleController : MeasurementController, ISampleAppService
         _sampleAppService = sampleAppService;
     }
 
-    public Task<Guid> CreateAsync(SampleDto sampleDto)
+    public Task<SampleDto> CreateAsync(SampleDto sampleDto)
     {
-        throw new NotImplementedException();
+        return _sampleAppService.CreateAsync(sampleDto);
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        await _sampleAppService.DeleteAsync(id);
     }
 
     [HttpGet]
@@ -43,8 +43,10 @@ public class SampleController : MeasurementController, ISampleAppService
         return await _sampleAppService.GetAsync();
     }
 
-    public Task<List<SampleDto>> GetListAsync()
+    [HttpGet]
+    [Authorize]
+    public async Task<List<SampleDto>> GetListAsync()
     {
-        throw new NotImplementedException();
+        return await _sampleAppService.GetListAsync();
     }
 }

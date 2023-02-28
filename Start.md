@@ -10,7 +10,7 @@
 
 ### Tutorial: 
 - [Web Application Development Tutorial](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=BlazorServer&DB=EF)
-
+- [ToDo Application Tutorial]("https://docs.abp.io/en/abp/latest/Tutorials/Todo/Index?UI=BlazorServer&DB=EF")
 
 ### Usefull commands:
 
@@ -38,4 +38,4 @@
 
 Remarks: 
 - HttpApi project can be removed if you don't need Web API/Swagger 
-- all projects can be in the single solution 
+- all projects can be in the Lab solution 
