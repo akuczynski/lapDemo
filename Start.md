@@ -35,8 +35,9 @@
 -  [Build simple TODO application in 15 mins](https://youtu.be/Qb-hsf1ID7k)
 -  [Add a new Module to the ABP App](https://blog.antosubash.com/posts/abp-add-new-module)
 -  [How to Integrate the Telerik Blazor Components to the ABP Blazor UI?](https://community.abp.io/posts/how-to-integrate-the-telerik-blazor-components-to-the-abp-blazor-ui-q8g31abb?_ga=2.152629817.1455784776.1677557058-1202437795.1670611426)
-
+-  [Local Event Bus (from documentation)](https://docs.abp.io/en/abp/latest/Local-Event-Bus)
 
 Remarks: 
 - HttpApi project can be removed if you don't need Web API/Swagger 
 - all projects can be in the Lab solution 
+- LeptonX template is using Blazorise Component Library https://blazorise.com/ 
