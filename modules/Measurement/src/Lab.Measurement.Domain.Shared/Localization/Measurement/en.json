@@ -5,6 +5,7 @@
     "SamplePageMessage": "A sample page for the Measurement module",
     "Permission:Measurement": "Measurment Managment",
     "Permission:Samples": "Samples",
+    "Permission:Samples:Create": "Create",
     "Menu:Samples": "Samples",
     "Menu:Example": "Example"
   }

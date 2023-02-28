@@ -21,6 +21,7 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 		_sampleRepository = sampleRepository; 
 	}
 
+    [Authorize(MeasurementPermissions.Samples.Create)]
     public async Task<SampleDto> CreateAsync(SampleDto sampleDto)
     {
         var item = ObjectMapper.Map<SampleDto, Sample>(sampleDto);
@@ -33,24 +34,7 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
     public async Task DeleteAsync(Guid id)
     {
         await _sampleRepository.DeleteAsync(id);
-    }
-
-    public async Task<SampleDto> GetAsync()
-	{
-        var item = await _sampleRepository.GetAsync(x => x.Measurement == "Measurement 1" && x.Number == 1);
-		var result = ObjectMapper.Map<Sample, SampleDto>(item);
-
-		return result;
-	}
-
-	[Authorize(MeasurementPermissions.Samples.Default)]
-	public async Task<SampleDto> GetAuthorizedAsync()
-	{
-		var item = await _sampleRepository.GetAsync(x => x.Measurement == "Measurement 1" && x.Number == 1);
-		var result = ObjectMapper.Map<Sample, SampleDto>(item);
-
-		return result;
-	}
+    } 
 
     [Authorize(MeasurementPermissions.Samples.Default)]
     public async Task<List<SampleDto>> GetListAsync()

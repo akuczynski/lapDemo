@@ -19,31 +19,22 @@ public class SampleController : MeasurementController, ISampleAppService
         _sampleAppService = sampleAppService;
     }
 
+    [HttpPost]
+    [Authorize]
     public Task<SampleDto> CreateAsync(SampleDto sampleDto)
     {
         return _sampleAppService.CreateAsync(sampleDto);
     }
 
+    [HttpDelete]
+    [Authorize]
     public async Task DeleteAsync(Guid id)
     {
         await _sampleAppService.DeleteAsync(id);
     }
 
     [HttpGet]
-    public async Task<SampleDto> GetAsync()
-    {
-        return await _sampleAppService.GetAsync();
-    }
-
-    [HttpGet]
-    [Route("authorized")]
-    [Authorize]
-    public async Task<SampleDto> GetAuthorizedAsync()
-    {
-        return await _sampleAppService.GetAsync();
-    }
-
-    [HttpGet]
+    [Route("list")]
     [Authorize]
     public async Task<List<SampleDto>> GetListAsync()
     {

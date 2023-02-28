@@ -8,15 +8,8 @@
 @inject ISampleAppService SampleAppService
 @inject IUiNotificationService NotifiationService
 @inject IStringLocalizer<MeasurementResource> L
+@inject IAuthorizationService Authorization
 @attribute [Authorize(Policy = MeasurementPermissions.Samples.Default)]
-
-@*<h3>Samples - Log</h3>
-
-@foreach(var sample in samples)
-{
-    <p>@sample</p>
-}
-*@
 
 <div class="container">
     <Card>
@@ -27,16 +20,19 @@
         </CardHeader>
         <CardBody>
             <!-- FORM FOR NEW SAMPLE ITEMS -->
-            <form id="NewItemForm" @onsubmit:preventDefault @onsubmit="() => Create()" class="row row-cols-lg-auto g-3 align-items-center">
-                <div class="col-12">
-                  <div class="input-group">
-                        <input name="NewTodoText" type="text" @bind-value="@NewValue" class="form-control" placeholder="enter text..." />
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            @if (HasCreatePermission)
+            {
+                <form id="NewItemForm" @onsubmit:preventDefault @onsubmit="() => Create()" class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="col-12">
+                      <div class="input-group">
+                            <input name="NewTodoText" type="text" @bind-value="@NewValue" class="form-control" placeholder="enter text..." />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form> 
+             }
             <!-- SAMPLE LIST -->
             <ul id="SampleList">
                 @foreach (var sample in samples)
@@ -56,10 +52,15 @@
 
     private string NewValue { get; set; }
 
+    private bool HasCreatePermission { get; set; }
+
     protected override async void OnInitialized()
     {
         // get list 
         samples = await SampleAppService.GetListAsync();
+
+        // check permissions 
+        HasCreatePermission = await Authorization.IsGrantedAsync(MeasurementPermissions.Samples.Create);
     }
 
     private async Task Delete(SampleDto item)

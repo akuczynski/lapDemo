@@ -10,7 +10,8 @@ public class MeasurementPermissionDefinitionProvider : PermissionDefinitionProvi
     {
         var group = context.AddGroup(MeasurementPermissions.GroupName, L("Permission:Measurement"));
 
-        var measurments = group.AddPermission(MeasurementPermissions.Samples.Default, L("Permission:Samples"));        
+        var measurments = group.AddPermission(MeasurementPermissions.Samples.Default, L("Permission:Samples"));
+        measurments.AddChild(MeasurementPermissions.Samples.Create, L("Permission:Samples:Create"));
     }
 
     private static LocalizableString L(string name)

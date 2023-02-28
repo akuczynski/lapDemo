@@ -36,7 +36,9 @@ public class LabMenuContributor : IMenuContributor
 
         if (MultiTenancyConsts.IsEnabled)
         {
+#pragma warning disable CS0162 // Unreachable code detected
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);
+#pragma warning restore CS0162 // Unreachable code detected
         }
         else
         {

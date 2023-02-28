@@ -10,9 +10,9 @@ public class MeasurementPermissions
     {
         public const string Default = GroupName + ".Samples";
 
-        //public const string Delete = Default + ".Delete";
+        public const string Delete = Default + ".Delete";
         //public const string Update = Default + ".Update";
-        //public const string Create = Default + ".Create";
+        public const string Create = Default + ".Create";
     }
 
     public static string[] GetAll()
