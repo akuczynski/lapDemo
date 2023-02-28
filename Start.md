@@ -4,18 +4,19 @@
 - Run abp install-libs command on your project folder
 
 ### Important information: 
-- Starting project is Lab.Blazor 
+- Starting project is <b>Lab.Blazor</b> 
 - Default login admin:1q2w3E*
 - Swagger URL: https://localhost:44313/swagger/index.html
+- Database connection string is defined in the Lab.Blazor appsettings.json 
 
-### Tutorial: 
+### Tutorials: 
 - [Web Application Development Tutorial](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=BlazorServer&DB=EF)
 - [ToDo Application Tutorial]("https://docs.abp.io/en/abp/latest/Tutorials/Todo/Index?UI=BlazorServer&DB=EF")
 
 ### Usefull commands:
 
-- dotnet build /graphBuild - build complete solution (with modules)  
-- abp add-module Lab.Instruments --new --add-to-solution-file - create new module with adding it to the solution  
+- <b>dotnet build /graphBuild</b> - build complete solution (with modules)  
+- <b>abp add-module Lab.Instruments --new --add-to-solution-file </b> - create new module with adding it to the solution  
 
 
 ### EF migrations commands (from VS): 
