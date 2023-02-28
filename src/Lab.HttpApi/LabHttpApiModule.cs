@@ -9,6 +9,7 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Lab.Measurement;
+using Volo.Abp.AspNetCore.Mvc;
 
 namespace Lab;
 
@@ -26,8 +27,7 @@ public class LabHttpApiModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        ConfigureLocalization();
-	 //	ConfigureAutoApiControllers();
+        ConfigureLocalization(); 
 	}
 
     private void ConfigureLocalization()
@@ -40,13 +40,5 @@ public class LabHttpApiModule : AbpModule
                     typeof(AbpUiResource)
                 );
         });
-    }
-
-	private void ConfigureAutoApiControllers()
-	{
-		//Configure<AbpAspNetCoreMvcOptions>(options =>
-		//{
-		//	options.ConventionalControllers.Create(typeof(BookModule).Assembly);
-		//});
-	}
+    } 
 }

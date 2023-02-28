@@ -1,5 +1,6 @@
 ﻿using Lab.Measurement.Entities;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
@@ -27,13 +28,44 @@ namespace Lab.Measurement.Seed
 				return;
 			}
 
-			var sample = new Sample
-			{
-				DataOfMeasurement = DateTime.Now,
-				LaborantName = "Maria Curie"
-			};
+			var sampleData = new List<Sample>();
 
-			await _sampleRepository.InsertAsync(sample);
+            sampleData.Add(new Sample
+			{
+				Measurement = "Measurement 1",
+                Number = 1,
+                Value = 1, 
+			});
+
+            sampleData.Add(new Sample
+            {
+                Measurement = "Measurement 1",
+                Number = 2,
+                Value = 2,
+            });
+
+            sampleData.Add(new Sample
+            {
+                Measurement = "Measurement 1",
+                Number = 3,
+                Value = 2,
+            });
+
+            sampleData.Add(new Sample
+            {
+                Measurement = "Measurement 2",
+                Number = 1,
+                Value = 5,
+            });
+
+            sampleData.Add(new Sample
+            {
+                Measurement = "Measurement 2",
+                Number = 2,
+                Value = 5,
+            });
+
+            await _sampleRepository.InsertManyAsync(sampleData);
 		}
 	}
 }

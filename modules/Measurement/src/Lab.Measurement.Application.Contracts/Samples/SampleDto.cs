@@ -4,7 +4,11 @@ namespace Lab.Measurement.Samples;
 
 public class SampleDto
 {
-	public string LaborantName { get; set; }
+    public Guid Id { get; set; }
 
-	public DateTime DataOfMeasurement { get; set; }
+    public int Number { get; set; }
+
+    public int Value { get; set; }
+
+    public string Measurement { get; set; }
 }

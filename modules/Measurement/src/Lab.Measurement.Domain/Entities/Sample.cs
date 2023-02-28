@@ -7,8 +7,10 @@ namespace Lab.Measurement.Entities
 {
 	public class Sample : Entity<Guid>
 	{
-		public string LaborantName { get; set; } 
+		public int Number { get; set; }
 
-		public DateTime DataOfMeasurement { get; set; }
+		public int Value { get; set; }
+
+		public string Measurement { get; set; } 
 	}
 }

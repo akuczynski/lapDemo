@@ -19,6 +19,6 @@
     protected override async void OnInitialized()
     {
        var sample = await sampleAppService.GetAuthorizedAsync();
-       message = $"{sample.LaborantName} did last measurement at {sample.DataOfMeasurement}";     
+       message = $"{sample.Measurement}: Nr {sample.Number} has value : {sample.Value} ";     
     }
 }

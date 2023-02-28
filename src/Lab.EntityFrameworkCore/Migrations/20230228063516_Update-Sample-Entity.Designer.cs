@@ -3,6 +3,7 @@ using System;
 using Lab.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Lab.Migrations
 {
     [DbContext(typeof(LabDbContext))]
-    partial class LabDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230228063516_Update-Sample-Entity")]
+    partial class UpdateSampleEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

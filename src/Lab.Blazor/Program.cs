@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Lab.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,8 +33,10 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
+
             await builder.AddApplicationAsync<LabBlazorModule>();
             var app = builder.Build();
+
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;

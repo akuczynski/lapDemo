@@ -19,9 +19,19 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 		_sampleRepository = sampleRepository; 
 	}
 
-	public async Task<SampleDto> GetAsync()
+    public Task<Guid> CreateAsync(SampleDto sampleDto)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteAsync(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<SampleDto> GetAsync()
 	{
-        var item = await _sampleRepository.GetAsync(x => x.Id != Guid.Empty);
+        var item = await _sampleRepository.GetAsync(x => x.Measurement == "Measurement 1" && x.Number == 1);
 		var result = ObjectMapper.Map<Sample, SampleDto>(item);
 
 		return result;
@@ -30,10 +40,14 @@ public class SampleAppService : MeasurementAppService, ISampleAppService
 	[Authorize(MeasurementPermissions.Samples.Default)]
 	public async Task<SampleDto> GetAuthorizedAsync()
 	{
-		var item = await _sampleRepository.GetAsync(x => x.Id != Guid.Empty);
+		var item = await _sampleRepository.GetAsync(x => x.Measurement == "Measurement 1" && x.Number == 1);
 		var result = ObjectMapper.Map<Sample, SampleDto>(item);
 
 		return result;
 	}
 
+    public Task<List<SampleDto>> GetListAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
