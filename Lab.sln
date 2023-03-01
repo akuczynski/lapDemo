@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.DbMigrator", "src\Lab.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.Blazor", "src\Lab.Blazor\Lab.Blazor.csproj", "{16F0BF4E-7D73-4278-8D9A-7CDE37105C6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HOWTOs", "HOWTOs", "{5C778322-3C87-4F42-9C30-199C6B63FED9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HOWTO", "HOWTO", "{5C778322-3C87-4F42-9C30-199C6B63FED9}"
 	ProjectSection(SolutionItems) = preProject
 		Start.md = Start.md
 	EndProjectSection
