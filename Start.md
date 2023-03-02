@@ -1,7 +1,7 @@
 ### ABP project setup: 
 - Create project with ABP CLI 
 - Run DbMigrator project 
-- Run abp install-libs command on your Blazor project 
+- Run <b>abp install-libs</b> command on your Blazor project 
 
 ### Important information: 
 - Starting project is <b>Lab.Blazor</b> 
@@ -13,19 +13,18 @@
 - [Web Application Development Tutorial](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=BlazorServer&DB=EF)
 - [ToDo Application Tutorial]("https://docs.abp.io/en/abp/latest/Tutorials/Todo/Index?UI=BlazorServer&DB=EF")
 - [Course on Udemy]("https://www.udemy.com/course/build-todo-web-application-with-abp-framework/")
-
+- [Mastering ABP Framework e-book](https://abp.io/books/mastering-abp-framework)
 
 ### Usefull commands:
 
 - <b>dotnet build /graphBuild</b> - build complete solution (with modules)  
 - <b>abp add-module Lab.Instruments --new --add-to-solution-file </b> - create new module with adding it to the solution  
 
-
 ### EF migrations commands (from VS): 
 - Add-Migration {MigrationName}
 - Update-Database 
 
-<i>Hint 1: Lab.EntityFrameworCore project must be selected in PMC and also in the Solution Exlporer</i> 
+<i>Hint 1: Lab.EntityFrameworCore project must be choosen in PMC and also in the Solution Exlporer</i> <br/> 
 <i>Hint 2: To apply migrations run Lab.DbMigrator project</i>
 
 ### Customization of the UI 
