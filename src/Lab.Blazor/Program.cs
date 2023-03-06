@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using ElectronNET.API;
 using Lab.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,21 @@ public class Program
         {
             Log.Information("Starting web host.");
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddElectron();
+            builder.WebHost.UseElectron(args);
+
+            if (HybridSupport.IsElectronActive)
+            {
+                // Open the Electron-Window here
+                Task.Run(async () => {
+                    var window = await Electron.WindowManager.CreateWindowAsync();
+                    window.OnClosed += () => {
+                        Electron.App.Quit();
+                    };
+                });
+            }
+
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();

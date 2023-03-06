@@ -1,7 +1,5 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <Import Project="..\..\common.props" />
-
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -11,24 +9,22 @@
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>Lab-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Blazorise.Bootstrap5" Version="1.1.4.1" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.4.1" />
+    <PackageReference Include="ElectronNET.API" Version="13.5.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-  <ProjectReference Include="..\..\modules\Lab.Instruments\src\Lab.Instruments.Blazor.Server\Lab.Instruments.Blazor.Server.csproj" /></ItemGroup>
-
+    <ProjectReference Include="..\..\modules\Lab.Instruments\src\Lab.Instruments.Blazor.Server\Lab.Instruments.Blazor.Server.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme" Version="2.0.*" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="2.0.*" />
   </ItemGroup>
-
   <ItemGroup>
-	<!-- add references to modules -->
-	<ProjectReference Include="..\..\modules\Measurement\src\Lab.Measurement.Blazor\Lab.Measurement.Blazor.csproj" />
-  </ItemGroup>	
-	
+    <!-- add references to modules -->
+    <ProjectReference Include="..\..\modules\Measurement\src\Lab.Measurement.Blazor\Lab.Measurement.Blazor.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lab.Application\Lab.Application.csproj" />
     <ProjectReference Include="..\Lab.HttpApi\Lab.HttpApi.csproj" />
@@ -41,14 +37,12 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" Version="7.0.2" />
     <PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" Version="7.0.2" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Logs\**" />
     <Content Remove="Logs\**" />
     <EmbeddedResource Remove="Logs\**" />
     <None Remove="Logs\**" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -57,5 +51,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Update="electron.manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
