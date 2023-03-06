@@ -41,6 +41,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 using Lab.Measurement.Blazor;
+using Lab.Instruments.Blazor.Server;
 
 namespace Lab.Blazor;
 
@@ -59,7 +60,8 @@ namespace Lab.Blazor;
     typeof(AbpSettingManagementBlazorServerModule),
     typeof(MeasurementBlazorModule)
    )]
-public class LabBlazorModule : AbpModule
+[DependsOn(typeof(InstrumentsBlazorServerModule))]
+    public class LabBlazorModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

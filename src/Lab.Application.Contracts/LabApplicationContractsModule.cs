@@ -1,4 +1,4 @@
-﻿using Lab.Measurement;
+using Lab.Measurement;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -7,6 +7,7 @@ using Volo.Abp.ObjectExtending;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
+using Lab.Instruments;
 
 namespace Lab;
 
@@ -21,7 +22,8 @@ namespace Lab;
     typeof(AbpObjectExtendingModule),
     typeof(MeasurementApplicationContractsModule)
 )]
-public class LabApplicationContractsModule : AbpModule
+[DependsOn(typeof(InstrumentsApplicationContractsModule))]
+    public class LabApplicationContractsModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

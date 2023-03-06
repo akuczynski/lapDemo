@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Lab.MultiTenancy;
 using Volo.Abp.AuditLogging;
@@ -15,6 +15,7 @@ using Volo.Abp.PermissionManagement.OpenIddict;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Lab.Measurement;
+using Lab.Instruments;
 
 namespace Lab;
 
@@ -32,7 +33,8 @@ namespace Lab;
     typeof(AbpEmailingModule),
     typeof(MeasurementDomainModule)
 )]
-public class LabDomainModule : AbpModule
+[DependsOn(typeof(InstrumentsDomainModule))]
+    public class LabDomainModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

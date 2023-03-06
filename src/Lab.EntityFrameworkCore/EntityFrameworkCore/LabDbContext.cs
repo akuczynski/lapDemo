@@ -1,4 +1,4 @@
-﻿using Lab.Measurement.EntityFrameworkCore;
+using Lab.Measurement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -13,6 +13,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using Lab.Instruments.EntityFrameworkCore;
 
 namespace Lab.EntityFrameworkCore;
 
@@ -83,5 +84,6 @@ public class LabDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
-    }
+        builder.ConfigureInstruments();
+        }
 }

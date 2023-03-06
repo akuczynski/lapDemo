@@ -1,4 +1,4 @@
-﻿using Lab.Localization;
+using Lab.Localization;
 using Lab.Measurement;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
@@ -13,6 +13,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Lab.Instruments;
 
 namespace Lab;
 
@@ -26,7 +27,8 @@ namespace Lab;
     typeof(AbpSettingManagementDomainSharedModule),
     typeof(AbpTenantManagementDomainSharedModule),
     typeof(MeasurementDomainSharedModule))]
-public class LabDomainSharedModule : AbpModule
+[DependsOn(typeof(InstrumentsDomainSharedModule))]
+    public class LabDomainSharedModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {

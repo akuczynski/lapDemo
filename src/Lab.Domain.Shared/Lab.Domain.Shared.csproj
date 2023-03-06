@@ -11,7 +11,7 @@
   <ItemGroup>
 	<!-- add references to modules -->
 	<ProjectReference Include="..\..\modules\Measurement\src\Lab.Measurement.Domain.Shared\Lab.Measurement.Domain.Shared.csproj" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\Lab.Instruments\src\Lab.Instruments.Domain.Shared\Lab.Instruments.Domain.Shared.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="7.0.2" />

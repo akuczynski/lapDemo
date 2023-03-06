@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -10,7 +10,7 @@
   <ItemGroup>
     <!-- add references to modules -->
 	<ProjectReference Include="..\..\modules\Measurement\src\Lab.Measurement.Application\Lab.Measurement.Application.csproj" />
-  </ItemGroup>	
+  <ProjectReference Include="..\..\modules\Lab.Instruments\src\Lab.Instruments.Application\Lab.Instruments.Application.csproj" /></ItemGroup>	
 	
   <ItemGroup>
     <ProjectReference Include="..\Lab.Domain\Lab.Domain.csproj" />

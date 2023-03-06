@@ -1,4 +1,4 @@
-﻿using Localization.Resources.AbpUi;
+using Localization.Resources.AbpUi;
 using Lab.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
@@ -10,6 +10,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Lab.Measurement;
 using Volo.Abp.AspNetCore.Mvc;
+using Lab.Instruments;
 
 namespace Lab;
 
@@ -23,7 +24,8 @@ namespace Lab;
     typeof(AbpSettingManagementHttpApiModule),
     typeof(MeasurementHttpApiModule)
 	)]
-public class LabHttpApiModule : AbpModule
+[DependsOn(typeof(InstrumentsHttpApiModule))]
+    public class LabHttpApiModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

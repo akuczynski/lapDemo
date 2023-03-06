@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Lab.Instruments": {
+      "path": "Lab.Instruments.abpmdl.json"
+    }
+  }
+}

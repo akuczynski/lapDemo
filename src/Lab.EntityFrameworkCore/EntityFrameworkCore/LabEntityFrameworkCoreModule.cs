@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -13,6 +13,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Lab.Measurement.EntityFrameworkCore;
+using Lab.Instruments.EntityFrameworkCore;
 
 namespace Lab.EntityFrameworkCore;
 
@@ -29,7 +30,8 @@ namespace Lab.EntityFrameworkCore;
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(MeasurementEntityFrameworkCoreModule)
     )]
-public class LabEntityFrameworkCoreModule : AbpModule
+[DependsOn(typeof(InstrumentsEntityFrameworkCoreModule))]
+    public class LabEntityFrameworkCoreModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
